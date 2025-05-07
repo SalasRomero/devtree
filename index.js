@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express';
 
 const app = express();
 
@@ -7,15 +7,7 @@ app.get('/',(req,res)=>{
     res.send('Hola mundo en express');
 });
 
-
-app.get('/ecommers',(req,res)=>{
-    res.send('Este es el ecommers');
-});
-
-app.get('/blog',(req,res)=>{
-    res.send('Este es el blog');
-});
-
-
-
-app.listen(4000,()=> console.log("servidor funcionando"))
+const port = process.env.port || 4000;
+app.listen(port,()=> {
+    console.log("servidor funcionando en el puerto",port)
+})
